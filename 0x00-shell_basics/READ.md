@@ -1,0 +1,1 @@
+This script prints the absilute pathways
