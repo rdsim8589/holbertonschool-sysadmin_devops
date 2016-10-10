@@ -1,2 +1,2 @@
 #!/bin/bash
-printf '%s\n' {{a..n},{p..z}}{a..z} {a..z}{{a..n},{p..z}} | sort
+printf '%s\n' {a..z}{a..z} | grep -vF "oo"
