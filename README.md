@@ -1,5 +1,6 @@
 #Sysadmin & Devops - Bash
 Assignments related to the basic of using bash. General topics of each directory and linked to topics
+==========================================
 ##0x00-shell_basics
 [What Is "The Shell"?](http://linuxcommand.org/lc3_lts0010.php), [Navigation](http://linuxcommand.org/lc3_lts0020.php),
 [Looking Around](http://linuxcommand.org/lc3_lts0030.php), [A Guided Tour](http://linuxcommand.org/lc3_lts0040.php),
