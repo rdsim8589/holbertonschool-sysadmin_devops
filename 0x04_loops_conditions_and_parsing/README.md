@@ -40,11 +40,15 @@ Bash script that gives you information about the holbertonschool file
 
 ##10-fizzbuzz
 Bash script FizzBuzz
+
 ##100-read_and_cut
 Bash script to get the User name, group id and the shell path
+
 ##101-tell_the_story_of_passwd
 Bash script tellings a story with the output with the passwd
+
 ##102-lets_parse_apache_logs
 bash script to display the ip and the html log for
+
 ##103-dig_the-data
 [] need to do
