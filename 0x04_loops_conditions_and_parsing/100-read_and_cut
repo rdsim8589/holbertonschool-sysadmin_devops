@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #get the User name, group id and the shell path
-While true; do
+while true; do
     cut -d: -f1,3,6 /etc/passwd
     break
 done
