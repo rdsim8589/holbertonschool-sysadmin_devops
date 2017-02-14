@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+#Bash script that gives you information about the holbertonschool file
 FILE="./holbertonschool"
 if [ -e "$FILE" ]; then
-    printf "%s\n" "holbertonschool file exist"
+    printf "%s\n" "holbertonschool file exists"
     if [ -s "$FILE" ]; then
 	printf "%s\n" "holbertonschool file is not empty"
     else
