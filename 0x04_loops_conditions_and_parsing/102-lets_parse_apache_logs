@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+#bash script to display the ip and the html log for 
 awk '{print $1,$9}' apache-access.log
