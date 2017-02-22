@@ -17,7 +17,7 @@ What network do you use when you browse www.holbertonschool.com from your smartp
 What is a MAC address?
 - The unique identifier of a network interface
 What is an IP address?
-Is a number that network devices use to connect to networks
+- Is to devices connected to a network what postal address is to houses
 
 ##3-UDP_and_TCP
 Which statement is correct for the TCP box:
