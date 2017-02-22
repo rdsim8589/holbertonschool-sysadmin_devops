@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #Bash script that pings an IP address passed as an agrument
 target="$1"
-if [[ $target -eq 0 ]]; then
+if [[ "$target" -eq 0 ]]; then
     echo 'Usage: 5-is_the_host_on_the_network {IP_ADDRESS}'
 else
-    ping -c 5 $target
+    ping -c 5 "$target"
 fi
