@@ -5,4 +5,4 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 echo Piping Holberton School | sudo tee /usr/share/nginx/html/index.html
-
+service nginx start
