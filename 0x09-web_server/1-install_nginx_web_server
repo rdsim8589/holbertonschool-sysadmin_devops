@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#install nginx on your web01 server
+#Nginx should be listening on port 80
+#Nginx, when sent a GET request at its root /, must return a page that contains at least once the string Holberton School
+sudo apt-get -y install nginx
+echo Piping Holberton School | sudo tee /usr/share/nginx/html/index.html
