@@ -1,4 +1,4 @@
-1;3409;0c#!/usr/bin/env bash
+#!/usr/bin/env bash
 #install nginx on your web01 server
 #Nginx should be listening on port 80
 #Nginx, when sent a GET request at its root /, must return a page that contains at least once the string Holberton School
