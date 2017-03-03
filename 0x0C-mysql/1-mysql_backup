@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# dumps all data bases into backup.sql
+# compressed backup.sql to a tar.gz format
+mysqldump -uroot -p $1 --all-databases > backup.sql
+tar -zcf $(date +%d-%m-%y).tar.gz backup.sql
