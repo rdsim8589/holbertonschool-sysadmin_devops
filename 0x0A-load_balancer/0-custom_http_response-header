@@ -1,22 +1,25 @@
 #!/usr/bin/env bash
-#configure nginx with a custom http header
-#install nginx on your web01 server
-#Nginx should be listening on port 80
+# Configures Nginx so that its HTTP response contains a custom header
+# customer header name must be X-Served-By
+# custom header value must be hostname of the server Nginx is running on
+
+# shellcheck disable=SC2154
+# update apt-get and install nginx
 sudo apt-get update;
 sudo apt-get install -y nginx;
-
-#Nginx, when sent a GET request at its root /, must return a page that contains at least once the string Holberton School
-
-echo Piping Holberton School | sudo tee /usr/share/nginx/html/index.html
-
+# create 404 page
+echo "<h1>Ceci n'est pas une page</h1>" > test_file;
+sudo mv test_file /usr/share/nginx/html/404.html;
+# change 404 landing
+new_string=" error_page 404 \/404.html;\n"
+# setup redirect
 file="/etc/nginx/sites-available/default"
-#Permanently have Ngnix redirect to another page
-sudo sed -i "26i\\\trewrite ^\/redirect_me https:\/\/github.com/rdsim8589 permenant;" "$file"
+sudo sed -i "26i $new_string" $file
+new_string=" rewrite ^\/redirect_me https:\/\/www.espn.com\/ permanent;"
+file="/etc/nginx/sites-available/default"
+sudo sed -i "26i $new_string" $file
 
-#configure nginx with a custom http header
-sudo sed -i "32i\\\t\t add_header X-Served-By $HOSTNAME;" "$file"
-
-#Permanently have Ngnix redirect to another page
-sudo sed -i "s/#error_page 404/error_page 404/" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
-sudo service nginx start
+file="/etc/nginx/nginx.conf";
+new_string="add_header X-Served-By $HOSTNAME";
+sudo sed -i "22i $new_string;" $file
+sudo service nginx start;
