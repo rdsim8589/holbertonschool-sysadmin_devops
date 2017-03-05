@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#configure nginx with a custom http header
+#install nginx on your web01 server
+#Nginx should be listening on port 80
+sudo apt-get update;
+sudo apt-get install -y nginx;
+
+#Nginx, when sent a GET request at its root /, must return a page that contains at least once the string Holberton School
+
+echo Piping Holberton School | sudo tee /usr/share/nginx/html/index.html
+
+file="/etc/nginx/sites-available/default"
+#Permanently have Ngnix redirect to another page
+sed -i "26i\\\trewrite ^\/redirect_me https:\/\/github.com/rdsim8589 permenant;" "$file"
+
+sudo sed -i '26s/^/        rewrite ^\/redirect_me https:\/\/github.com/rdsim8589 permanent;/' /etc/nginx/sites-available/default
+
+#configure nginx with a custom http header
+sudo sed -i "32i\\\t\t add_header X-Served-By $HOSTNAME;" "$file"
+
+#Permanently have Ngnix redirect to another page
+sudo sed -i "s/#error_page 404/error_page 404/" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+sudo service nginx start
