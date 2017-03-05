@@ -5,10 +5,6 @@
 sudo apt-get update;
 sudo apt-get install -y nginx;
 
-#Nginx, when sent a GET request at its root /, must return a page that contains at least once the string Holberton School
-
-echo "Piping Holberton School" | sudo tee /usr/share/nginx/html/index.html;
-
 file="/etc/nginx/sites-available/default"
 #Permanently have Ngnix redirect to another page
 sudo sed -i "26i\\\trewrite ^\/redirect_me https:\/\/github.com/rdsim8589 permenant;" "$file";
@@ -16,7 +12,7 @@ sudo sed -i "26i\\\trewrite ^\/redirect_me https:\/\/github.com/rdsim8589 permen
 #configure nginx with a custom http header
 sudo sed -i "32i\\\t\t add_header X-Served-By $HOSTNAME;" "$file"
 
-#Permanently have Ngnix redirect to another page
+#Permanently have Ngnix redirect to a 404 page
 sudo sed -i "s/#error_page 404/error_page 404/" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
 sudo service nginx start;
