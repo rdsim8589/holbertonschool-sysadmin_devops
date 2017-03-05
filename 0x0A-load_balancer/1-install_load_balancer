@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#installing the load balancer
+sudo apt-get update;
+sudo apt-get haproxy;
+sudo -i sed "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
+sudo cp /etc/haproxy/haproxy.cfg{,.original}
+sudo echo "listen appname 0.0.0.0:80
+    mode http
+    balance roundrobin
+    option httpclose
+    option forwardfor
+    server web-01 54.209.54.84:80 check
+    server web-02 54.243.1.173:80 check" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy start
