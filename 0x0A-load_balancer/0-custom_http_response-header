@@ -7,7 +7,7 @@ sudo apt-get install -y nginx;
 file="/etc/nginx/sites-available/default"
 
 #Permanently have Ngnix redirect to another page
-sudo sed -i "26i\\\trewrite ^\/redirect_me https:\/\/github.com\/rdsim8589 permenant;" "$file";
+sudo sed -i "27i\\\trewrite ^\/redirect_me https:\/\/github.com\/rdsim8589\/ permenant;" "$file";
 
 #configure nginx with a custom http header
 sudo sed -i "20i\\\t\t add_header X-Served-By $HOSTNAME;" "$file"
