@@ -3,7 +3,7 @@
 sudo apt-get update;
 sudo apt-get install -y haproxy;
 sudo -i sed "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
-sudo cp /etc/haproxy/haproxy.cfg{,.original}
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.copy
 sudo sed -i '$a\\nlisten appname 0.0.0.0:80\n\tmode http\n\tstats enable' /etc/haproxy/haproxy.cfg
 sudo sed -i '$a\\tbalance roundrobin\n\toption httpclose\n\toption forwardfor' /etc/haproxy/haproxy.cfg
 sudo sed -i '$a\\tserver 100-web-01 54.209.54.84:80\n\tserver 100-web-02 54.243.1.173:80 ' /etc/haproxy/haproxy.cfg
