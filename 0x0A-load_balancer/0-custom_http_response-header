@@ -10,7 +10,7 @@ file="/etc/nginx/sites-available/default"
 sudo sed -i "26i\\\trewrite ^\/redirect_me https:\/\/github.com\/rdsim8589 permanent;" "$file";
 
 #configure nginx with a custom http header
-sudo sed -i "20i\\\t\t add_header X-Served-By $HOSTNAME;" "$file"
+sudo sed -i "36i\\\t\t add_header X-Served-By $HOSTNAME;" "$file"
 
 #Permanently have Ngnix redirect to another page
 sudo sed -i "s/#error_page 404/error_page 404/" /etc/nginx/sites-available/default
