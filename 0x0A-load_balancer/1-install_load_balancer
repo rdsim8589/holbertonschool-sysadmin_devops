@@ -9,6 +9,6 @@ sudo echo "listen appname 0.0.0.0:80
     balance roundrobin
     option httpclose
     option forwardfor
-    server web-01 54.209.54.84:80 check
-    server web-02 54.243.1.173:80 check" >> /etc/haproxy/haproxy.cfg
+    server 100-web-01 54.209.54.84:80 check
+    server 100-web-02 54.243.1.173:80 check" >> /etc/haproxy/haproxy.cfg
 sudo service haproxy start
