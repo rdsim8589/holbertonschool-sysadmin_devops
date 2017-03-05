@@ -4,11 +4,6 @@
 #Nginx should be listening on port 80
 sudo apt-get update;
 sudo apt-get install -y nginx;
-
-#Nginx, when sent a GET request at its root /, must return a page that contains at least once the string Holberton School
-
-echo Piping Holberton School | sudo tee /usr/share/nginx/html/index.html;
-
 file="/etc/nginx/sites-available/default"
 #Permanently have Ngnix redirect to another page
 sudo sed -i "26i\\\trewrite ^\/redirect_me https:\/\/github.com/rdsim8589 permenant;" "$file";
