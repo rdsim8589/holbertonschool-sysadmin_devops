@@ -6,13 +6,7 @@ sudo apt-get update;
 sudo apt-get install -y nginx;
 
 file="/etc/nginx/sites-available/default"
-#Permanently have Ngnix redirect to another page
-sudo sed -i "26i\\\trewrite ^\/redirect_me https:\/\/github.com/rdsim8589 permenant;" "$file";
-
 #configure nginx with a custom http header
-sudo sed -i "20i\\\t\t add_header X-Served-By $HOSTNAME;" "$file"
+sudo sed -i "20i\\\t\t add_header X-Served-By: $HOSTNAME;" "$file"
 
-#Permanently have Ngnix redirect to a 404 page
-sudo sed -i "s/#error_page 404/error_page 404/" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
 sudo service nginx start;
