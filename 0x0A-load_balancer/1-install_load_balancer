@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-#installing the load balancer
-sudo apt-get update;
-sudo apt-get install -y haproxy;
-sudo -i sed 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+# installing the load balancer
+sudo apt-get update
+sudo apt-get install haproxy
+sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
 
 file=/etc/haproxy/haproxy.cfg
 
