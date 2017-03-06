@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 # prints out the sub domain and the ip it points to
-function default()
+default()
 {
    for i in "www" "lb-01" "web-01" "web-02"; do
 	a=( $(dig "$i".rdsim8589.tech | awk '/ANSWER SECTION:/ {getline;print}') )
 	echo The subdomain "$i" is a ${a[3]} record and points to ${a[4]}
    done
 }
+
 if [ "$#" -lt 2 ]; then
     default
 else
