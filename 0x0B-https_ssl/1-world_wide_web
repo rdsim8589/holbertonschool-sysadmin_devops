@@ -3,14 +3,14 @@
 default()
 {
    for i in "www" "lb-01" "web-01" "web-02"; do
-	a=( $(dig "$i".rdsim8589.tech | awk '/ANSWER SECTION:/ {getline;print}') )
-	echo The subdomain "$i" is a ${a[3]} record and points to ${a[4]}
+	a=( $(dig "$i.$1" | awk '/ANSWER SECTION:/ {getline;print}') )
+	echo The subdomain "$i" is a "${a[3]}" record and points to "${a[4]}"
    done
 }
 
 if [ "$#" -lt 2 ]; then
-    default
+    default "$1"
 else
     a=( $(dig "$2.$1" | awk '/ANSWER SECTION:/ {getline;print}') )
-    echo The subdomain "$2" is a ${a[3]} record and points to ${a[4]}
+    echo The subdomain "$2" is a "${a[3]}" record and points to "${a[4]}"
 fi
