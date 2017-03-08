@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#configures the ip address to have
+#localhost resolves to 127.0.0.2
+#facebook.com resolves to 8.8.8.8.
+hosts="/etc/hosts"
+sed -i "s/127.0.0.1/127.0.0.2/" "$hosts"
+echo -e "8.8.8.8\t\tfacebook.com\n" | tee -a "$hosts"
