@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# displays all the IPv4 ip addresses
+ifconfig | grep 'inet addr:' | gawk -F '[:]' '{print }' | cut -d' ' -f1
