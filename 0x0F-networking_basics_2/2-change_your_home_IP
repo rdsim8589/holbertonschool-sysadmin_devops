@@ -3,5 +3,8 @@
 #localhost resolves to 127.0.0.2
 #facebook.com resolves to 8.8.8.8.
 hosts="/etc/hosts"
-sed -i "s/127.0.0.1/127.0.0.2/" "$hosts"
-echo -e "8.8.8.8\t\tfacebook.com\n" | tee -a "$hosts"
+cp_hosts="/etc/hosts.new"
+cp "$hosts" "$cp_hosts"
+sudo sed -i "s/127.0.0.1/127.0.0.2/" "$cp_hosts"
+echo -e "8.8.8.8\t\tfacebook.com\n" | tee -a "$hosts" > /tmp/extra
+cp "$cp_hosts" "$hosts"
