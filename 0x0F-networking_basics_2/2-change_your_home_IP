@@ -3,7 +3,7 @@
 #localhost resolves to 127.0.0.2
 #facebook.com resolves to 8.8.8.8.
 hosts="/etc/hosts"
-cp_hosts="~/hosts.new"
+cp_hosts=~/hosts.new
 cp "$hosts" "$cp_hosts"
 sudo sed -i "s/127.0.0.1/127.0.0.2/" "$cp_hosts"
 echo -e "8.8.8.8\t\tfacebook.com\n" | tee -a "$hosts" > /tmp/extra
