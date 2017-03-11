@@ -2,4 +2,5 @@
 # have nginx listen to port 80 by creating a symbolic into sites-available
 sudo rm /etc/nginx/sites-enabled/default
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo sed -i "s/listen 8080/listen 80/" /etc/nginx/sites-available/default
 sudo service nginx start
