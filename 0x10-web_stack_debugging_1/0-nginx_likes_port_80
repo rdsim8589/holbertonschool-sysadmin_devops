@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# have nginx listen to port 80 by creating a symbolic into sites-available
-sudo rm /etc/nginx/sites-enabled/default
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo sed -i 's/8080/80/' /etc/nginx/sites-available/default
-sudo service nginx start
+# Fixes the docker container so that nginx listens on port 80
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sed -i 's/8080/80/' /etc/nginx/sites-available/default
+service nginx start
+
