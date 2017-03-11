@@ -2,6 +2,6 @@
 #change user of nginx by changing ownership of nginx process
 pkill -9 apache2
 sudo sed -i "s/80 default/8080 default/" /etc/nginx/sites-available/default
-sudo sed -i 's|#user www-data;|nginx|' /etc/nginx/nginx.conf
+sudo sed -i 's|#user www-data;|nginx;|' /etc/nginx/nginx.conf
 chown -R nginx /var/log/nginx /etc/nginx/
 su nginx -c nginx
