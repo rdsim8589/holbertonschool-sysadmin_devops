@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # have nginx listen to port 80 by creating a symbolic into sites-available
 sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default 
-service nginx start
+sed -i "s/status_of_proc -p \$PID/status_of_proc -p \$PI/" /etc/init.d/nginx
