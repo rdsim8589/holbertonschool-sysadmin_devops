@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# Fixes the docker container so that nginx listens on port 80
-rm /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sed -i 's/8080/80/' /etc/nginx/sites-available/default
+# change port 8080 to 80
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 service nginx start
-
