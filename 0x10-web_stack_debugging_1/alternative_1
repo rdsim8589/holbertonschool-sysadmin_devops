@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# have nginx listen to port 80 by creating a symbolic into sites-available
+sed -i -e "s/8080/80/g" /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default -e "s/status_of_proc -p \$PID/status_of_proc -p \$PI/" /etc/init.d/nginx -e "s/start-stop-daemon --stop --quiet/#start-stop-daemon --stop --quiet/" /etc/init.d/nginx
+service nginx start
