@@ -19,7 +19,7 @@ def get_user_info(user_id):
     print("Employee {} is done with tasks({}/{}):"
           .format(name, len(task_done), len(r)))
     for task in task_done:
-        print("\t{}".format(task.get("title")))
+        print("\t {}".format(task.get("title")))
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
