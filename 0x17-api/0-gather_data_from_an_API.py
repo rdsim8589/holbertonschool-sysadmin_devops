@@ -7,6 +7,9 @@ import sys
 
 
 def get_user_info(user_id):
+    """
+    Fuction to get the user data through requests in from REST API
+    """
     url_root = "https://jsonplaceholder.typicode.com"
     url_users = url_root + "/users"
     url_todos = url_root + "/todos"
