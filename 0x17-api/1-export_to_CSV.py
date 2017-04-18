@@ -13,11 +13,12 @@ def get_user_info_csv(user_id):
     url_root = "https://jsonplaceholder.typicode.com"
     url_users = url_root + "/users"
     url_todos = url_root + "/todos"
-    name = requests.get("{}/{}".format(url_users, user_id)).json().get("username")
+    name = requests.get("{}/{}".
+                        format(url_users, user_id)).json().get("username")
     r = requests.get("{}/?userId={}".format(url_todos, user_id)).json()
     with open("{}.csv".format(user_id), "w", newline="") as f:
         csvwriter = csv.writer(f, delimiter=",", quotechar='"',
-                              quoting=csv.QUOTE_ALL)
+                               quoting=csv.QUOTE_ALL)
         csvwriter.writerows([user_id, name, task.get("completed"),
                             task.get("title")] for task in r)
 
