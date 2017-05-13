@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-This modules returns the to do list of an employee based on id
-
-This is done with eh CSV format
+This module creates a .csv file of employee data based on id
 """
 import csv
 import requests
@@ -10,6 +8,13 @@ import sys
 
 
 def get_user_info_csv(user_id):
+    """
+    Arguement: user_id
+
+    output: csv file formatted as
+    "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
+
+    """
     url_root = "https://jsonplaceholder.typicode.com"
     url_users = url_root + "/users"
     url_todos = url_root + "/todos"
