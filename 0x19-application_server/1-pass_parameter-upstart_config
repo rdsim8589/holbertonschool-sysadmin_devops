@@ -9,3 +9,4 @@ setgid www-data
 
 env PATH=/home/ubuntu/AirBnB_clone_v4/hbnbEnv/bin
 chdir /home/ubuntu/AirBnB_clone_v4/
+exec gunicorn --workers 3 --bind 127.0.0.1:8002 web_flask.6-number_odd_or_even:app
