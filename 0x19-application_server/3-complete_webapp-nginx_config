@@ -7,7 +7,7 @@ server {
         rewrite ^/redirect_me https://github.com/rdsim8589 permanent;
 
 	# Make site accessible from http://localhost/
-	server_name localhost;
+	server_name 127.0.0.1;
 
 	location / {
 		include proxy_params;
