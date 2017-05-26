@@ -16,7 +16,6 @@ file { '/etc/default/nginx':
 }
 
 service { 'nginx restart':
-  ensure     => 'running',
   name       => 'nginx',
   hasrestart => true,
   path       => '/etc/init.d/',
