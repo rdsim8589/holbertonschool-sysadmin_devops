@@ -2,8 +2,8 @@
 """
 Contains the recurse method
 """
-import requests
 import random
+import requests
 
 
 def count_words(subreddit, word_list):
