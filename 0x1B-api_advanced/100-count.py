@@ -4,6 +4,7 @@ Contains the recurse method
 """
 import random
 import requests
+from collections import defaultdict
 user_agent = "User Agent{:d}".format(random.randrange(1000, 9999))
 header = {'User-Agent': user_agent}
 
@@ -17,23 +18,24 @@ def count_words(subreddit, word_list, base=0, keywords={}, after=""):
     return: host_list or None otherwise
     """
     if keywords == {}:
-        for word in word_list:
-            keywords[word.lower()] = 0
-    url = "https://www.reddit.com/r/{}/.json{}".format(subreddit, after)
-    r = requests.get(url, headers=header, allow_redirects=False)
+        word_list = [word.lower() for word in word_list]
+        word_list = list(set(word_list))
+        keywords = defaultdict(int)
+    url = "https://www.reddit.com/r/{}/.json".format(subreddit)
+    r = requests.get(url, headers=header, params={"after": after},
+                     allow_redirects=False)
     if r.status_code == 200:
         r_dict = r.json()
         for reddit_post in r_dict["data"]["children"]:
             title_words = reddit_post['data']['title'].lower().split()
             for title_word in title_words:
-                for word in keywords.keys():
+                for word in word_list:
                     if word == title_word:
                         keywords[word] += 1
             after = r_dict['data']['after']
         if after is None:
             return keywords
         else:
-            after = "?after={}".format(after)
             keywords = count_words(subreddit, word_list,
                                    base + 1, keywords, after)
     else:
