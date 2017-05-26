@@ -2,8 +2,8 @@
 """
 module contains top_ten
 """
-import requests
 import random
+import requests
 
 
 def top_ten(subreddit):
@@ -20,7 +20,7 @@ def top_ten(subreddit):
     if r.status_code == 200:
         r_dict = r.json()
         try:
-            for i in range(1, 11):
+            for i in range(0, 10):
                 print(r_dict["data"]['children'][i]['data']['title'])
         except Exception as e:
             print(e)
