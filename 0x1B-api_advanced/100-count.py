@@ -32,7 +32,7 @@ def count_words(subreddit, word_list, base=0, keywords={}, after=""):
                 for word in word_list:
                     if word == title_word:
                         keywords[word] += 1
-            after = r_dict['data']['after']
+        after = r_dict['data']['after']
         if after is None:
             return keywords
         else:
