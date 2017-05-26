@@ -37,7 +37,7 @@ def count_words(subreddit, word_list, base=0, keywords={}, after=""):
             keywords = count_words(subreddit, word_list,
                                    base + 1, keywords, after)
     else:
-        return r.status_code
+        return None
     # only to be executed for before the recursive
     if base is 0:
         keywords_list = list(keywords.items())
