@@ -13,7 +13,6 @@ file { '/etc/default/nginx':
   owner   => 'root',
   group   => 'root',
   content => '$str',
-  notify  => Service['nginx'],
 }
 exec { 'nginx':
       command => '/etc/init.d/nginx restart'
