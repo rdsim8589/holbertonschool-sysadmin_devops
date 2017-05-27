@@ -16,7 +16,7 @@ file { '/etc/default/nginx':
   notify  => Service['nginx'],
 }
 exec { 'nginx':
-      command => "/etc/init.d/nginx restart"
+      command => '/etc/init.d/nginx restart'
 }
 
 #service { 'nginx':
