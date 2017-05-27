@@ -18,18 +18,3 @@ file { '/etc/default/nginx':
 exec { 'nginx':
       command => '/etc/init.d/nginx restart'
 }
-
-#service { 'nginx':
-#  ensure     => 'running',
-#  name       => 'nginx',
-#  hasrestart => true,
-#  restart    => true,
-#  subscribe  => File['/etc/init.d/nginx'],
-#}
-# display output of running the ab command
-#
-#exec { 'run ab':
-#  path      => '/usr/bin',
-#  command   => 'ab -c 100 -n 2000 localhost/',
-#  logoutput => true,
-#}
