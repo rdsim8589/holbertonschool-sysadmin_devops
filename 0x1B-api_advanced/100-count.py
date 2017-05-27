@@ -2,9 +2,9 @@
 """
 Contains the recurse method
 """
+from collections import defaultdict
 import random
 import requests
-from collections import defaultdict
 user_agent = "User Agent{:d}".format(random.randrange(1000, 9999))
 header = {'User-Agent': user_agent}
 
@@ -36,7 +36,7 @@ def count_words(subreddit, word_list, base=0, keywords={}, after=""):
         if after is None:
             return keywords
         else:
-            keywords = count_words(subreddit, word_list,
+            count_words(subreddit, word_list,
                                    base + 1, keywords, after)
     else:
         return None
