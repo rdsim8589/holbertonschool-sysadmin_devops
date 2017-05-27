@@ -13,14 +13,19 @@ file { '/etc/default/nginx':
   owner   => 'root',
   group   => 'root',
   content => '$str',
+  notify  => Service['nginx'],
+}
+exec { 'nginx':
+      command => "/etc/init.d/nginx restart"
 }
 
-service { 'nginx restart':
-  name       => 'nginx',
-  hasrestart => true,
-  path       => '/etc/init.d/',
-  restart    => true,
-}
+#service { 'nginx':
+#  ensure     => 'running',
+#  name       => 'nginx',
+#  hasrestart => true,
+#  restart    => true,
+#  subscribe  => File['/etc/init.d/nginx'],
+#}
 # display output of running the ab command
 #
 #exec { 'run ab':
